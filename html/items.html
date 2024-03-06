@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item List</title>
+</head>
+<body>
+    <h1>Item List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Equipped</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.ItemID }}</td>
+                <td>{{ item.Name }}</td>
+                <td>{{ item.Type }}</td>
+                <td>{{ item.Description }}</td>
+                <td>{{ item.Equipped }}</td>
+                <td>{{ item.Count }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">No items found</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('routes.add_item') }}">Add Item</a>
+</body>
+</html>

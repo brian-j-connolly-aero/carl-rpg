@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item</title>
+</head>
+<body>
+    <h2>Add a New Item</h2>
+    <form action="{{ url_for('routes.add_item') }}" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="type">Type:</label>
+        <input type="text" id="type" name="type" required><br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br><br>
+
+        <label for="equipped">Equipped:</label>
+        <input type="text" id="equipped" name="equipped" required><br><br>
+
+        <label for="count">Count:</label>
+        <input type="number" id="count" name="count" required><br><br>
+
+        <label for="character_id">Character ID:</label>
+        <input type="number" id="character_id" name="character_id"><br><br>
+
+        <label for="location_id">Location ID:</label>
+        <input type="number" id="location_id" name="location_id"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <a href="{{ url_for('routes.item_list') }}">Back to Item List</a>
+</body>
+</html>
