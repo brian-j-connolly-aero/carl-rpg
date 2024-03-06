@@ -64,4 +64,5 @@ if __name__=='__main__':
     input_audio = 'cheevo_ai2.mp3'
     output_audio = 'cheevo_ai2_out.wav'
     n_steps = 4  # Shifts pitch up by 4 half-steps. Use negative values to shift down.
+    #Audio should be elevenlabs patrick?
     pitch_shift_audio(input_audio, output_audio, n_steps)

@@ -249,6 +249,71 @@ def handle_item(item_id):
         db.session.commit()
         return '', 204
 
+
+@app.route('/item_list', methods=['GET', 'POST'])
+def item_list():
+    if request.method == 'POST':
+        # Retrieve form data
+        item_id = request.form.get('ItemID')
+        name = request.form['Name']
+        item_type = request.form['Type']
+        description = request.form['Description']
+        equipped = request.form['Equipped']
+        count = request.form['Count']
+
+        if item_id:
+            # Update existing item
+            item = Item.query.get(item_id)
+            if item:
+                item.Name = name
+                item.Type = item_type
+                item.Description = description
+                item.Equipped = equipped
+                item.Count = count
+                db.session.commit()
+        else:
+            # Create new item
+            new_item = Item(Name=name, Type=item_type, Description=description, Equipped=equipped, Count=count)
+            db.session.add(new_item)
+            db.session.commit()
+
+        return redirect(url_for('routes.item_list'))
+
+    items = Item.query.all()
+    return render_template('items.html', items=items)
+
+
+@app.route('/add_item', methods=['GET', 'POST'])
+def add_item():
+    if request.method == 'POST':
+        # Retrieve form data
+        name = request.form['name']
+        item_type = request.form['type']
+        description = request.form['description']
+        equipped = request.form['equipped']
+        count = request.form['count']
+        character_id = request.form['character_id']
+        location_id = request.form['location_id']
+
+        new_item = Item(Name=name, Type=item_type, Description=description, Equipped=equipped, Count=count,
+                        CharacterID=character_id, LocationID=location_id)
+        db.session.add(new_item)
+        db.session.commit()
+
+        # Redirect to a new page or back to the item list, for instance
+        return redirect(url_for('routes.item_list'))
+
+    return render_template('add_item.html')
+
+
+@app.route('/characters/<int:character_id>/item_list', methods=['GET'])
+def character_item_list(character_id):
+    character = Character.query.get(character_id)
+    if character:
+        items = character.items
+        return render_template('character_items.html', character=character, items=items)
+    else:
+        return "Character not found", 404
 # History Routes
 
 
