@@ -5,26 +5,15 @@
     <title>Character List</title>
 </head>
 <body>
-    <h1>Character List</h1>
+    <h1>Character List (could be a table?)</h1>
     <ul>
         {% for character in characters %}
-            <li>ID: {{ character.CharacterID }}, Name: {{ character.Name }}, Class: {{ character.Class }}, Type: {{ character.Type }}, Level: {{ character.Level }}</li>
+        <li>ID: {{ character.CharacterID }}, Name: <a href="{{ url_for('routes.character_sheet', character_id=character.CharacterID) }}">{{ character.Name }}</a>, HP = {{ character.HP }}/{{ character.HP_max }}, MP = {{ character.MP }}/{{ character.MP_max }}, Class: {{ character.Class }}, Level: {{ character.Level }}, Role: {{ character.PartyRole }}, Description: {{ character.Description }}</li>
         {% else %}
-            <li>No characters found</li>
+        <li>No characters found</li>
         {% endfor %}
     </ul>
-	    <h2>Add/Update Character</h2>
-    <form action="/characters" method="post">
-        <input type="hidden" name="CharacterID" value="{{ character.CharacterID|default('') }}">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="Name" value="{{ character.Name|default('') }}"><br><br>
-        <label for="class">Class:</label>
-        <input type="text" id="class" name="Class" value="{{ character.Class|default('') }}"><br><br>
-        <label for="type">Type:</label>
-        <input type="text" id="type" name="Type" value="{{ character.Type|default('') }}"><br><br>
-        <label for="level">Level:</label>
-        <input type="number" id="level" name="Level" value="{{ character.Level|default(1) }}" min="1"><br><br>
-        <input type="submit" value="Submit">
-    </form>
+
+    <a href="{{ url_for('routes.add_character') }}">Add Character</a>
 </body>
 </html>

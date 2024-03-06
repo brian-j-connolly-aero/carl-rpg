@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Sheet - {{ character.Name }}</title>
+</head>
+<body>
+<h1>Character Sheet</h1>
+<div class="character-sheet">
+  <div class="picture">
+    {% if character.picture %}
+      <img src="{{ character.picture }}" alt="Character Picture">
+    {% else %}
+      <p>No picture available</p>
+    {% endif %}
+  </div>
+  <div class="details">
+    <p><strong>Name:</strong> {{ character.Name }}</p>
+    <p><strong>HP:</strong> {{ character.HP }}</p>
+    <p><strong>Class:</strong> {{ character.Class }}</p>
+    <p><strong>Level:</strong> {{ character.Level }}</p>
+    <p><strong>Party Role:</strong> {{ character.PartyRole }}</p>
+    <!-- Add more character details as needed -->
+  </div>
+  <div class="inventory">
+    <h3>Inventory</h3>
+    <ul>
+      {% for item in character.items %}
+        <li><a href="{{ url_for('handle_item', item_id=item.ItemID) }}">{{ item.Name }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="actions">
+	<a href="{{ url_for('routes.character_list') }}">Back to Character List</a>
+    {# <a href="{{ url_for('edit_character', character_id=character.CharacterID) }}">Propose Changes</a> #}
+    {# <a href="{{ url_for('save_character', character_id=character.CharacterID) }}">Save Changes</a> #}
+  </div>
+</div>
+
+    
+</body>
+</html>
