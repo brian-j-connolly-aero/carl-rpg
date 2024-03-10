@@ -1,2 +1,4 @@
 # .gitignore content
 __pycache__/
+wikiextractor/
+ScrapeFandom/
