@@ -10,7 +10,10 @@ from typing import List
 from pydantic import BaseModel, Field
 from xml_parse import get_category
 import tiktoken
-
+from audio.chorus import pitch_shift_audio
+from audio.elevenlabs import generate_audio
+from config import AUDIO_OUTPUT
+import os
 
 enc = tiktoken.encoding_for_model("gpt-4")
 
@@ -22,9 +25,9 @@ class Achievement(BaseModel):
     description: str
     reward: str = Field(
         ..., description="If reward is not justified, describe why reward is not justified. If reward is justified, respond in this format: {You've received a bronze/silver/gold/platium/legendary/celestial {insert box type relevant to activity} box}.")
+    box_contents: str = Field(..., description="Contents of reward box. If no box, return None")
 
 
-Achievement.schema()
 GPT_MODEL = "gpt-4-turbo"
 client = OpenAI()
 
@@ -36,7 +39,7 @@ tools = [{"type": "function",
           "function": {
               "name": "return_achivement",
               "description": "Returns name, description, and reward of an achievement.",
-              "parameters": Achievement.schema()
+              "parameters": Achievement.model_json_schema()
           }
           }
          ]
@@ -49,6 +52,14 @@ response = client.chat.completions.create(
 )
 test_dict=json.loads(response.choices[0].message.tool_calls[0].function.arguments)
 #%%
-print(f"New Achievement!: {test_dict['name']}. <break time=\".75s\" />")
-print(f"{test_dict['description']}")
-print(f"Reward: {test_dict['reward']}")
+cheevo_formatted_text=f"""New Achievement!: {test_dict['name']}. <break time=\".75s\" />
+{test_dict['description']}
+Reward: {test_dict['reward']}"""
+print(cheevo_formatted_text)
+filepath=generate_audio(cheevo_formatted_text)
+print('very done')
+root, ext = os.path.splitext(filepath)
+# Append "_edited" to the root and add the extension back
+edited_file_path = f"{root}_edited{ext}"
+pitch_shift_audio(filepath,edited_file_path,4)
+

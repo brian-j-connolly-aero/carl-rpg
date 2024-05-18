@@ -1,0 +1,14 @@
+graph TD
+Query------>LLM
+Database-->History
+Database--as relevant-->Characters
+Database--as relevant-->Items
+Current_Scene--->Ledger
+    subgraph LLM_Query
+
+        History-->Ledger
+        Characters -->Ledger
+        Items -->Ledger
+        Ledger--> LLM 
+    end
+    LLM-->Formatted_Output

@@ -1,0 +1,14 @@
+graph TD
+
+Box_Contents-->LLM_Query
+DatabaseRead[Database]--->LLM_Query
+Current_Scene--->LLM_Query
+    subgraph New_Item
+
+    LLM_Query-->Item_Stats
+    LLM_Query-->Item_Description
+
+    end
+Item_Stats-->Database
+Item_Description-->Database
+Item_Description-->AI_Voice

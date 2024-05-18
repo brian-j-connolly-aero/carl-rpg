@@ -17,7 +17,7 @@ Krakaren: The Krakaren are a hive mind that runs the Apothecary and is financing
 Lemig Sortion: Lemig Sortion is a democratic government of multiple races that votes on everything. Their forces were badly damaged when the high elf castle landed in their battlefield.
 Nebular: The Nebular are a religious cult that augments themselves mechanically and biologically. Their goal is to shut down the Crawl. They consist of different races but all wear the same distinctive uniforms.
 The Dream: The Dream is a faction of elves participating in the Faction Wars. They control food production in several solar systems.
-The Plenty: The Plenty (consisting caprids which are goat-men) runs the tunneling system and coordinates with the Apothecary on loot boxes.
+The Plenty: The Plenty runs the tunneling system and coordinates with the Apothecary on loot boxes.
 The Reavers: The Reavers are a corporation and government that live on a dyson sphere, consisting of cybernetically enhanced races.
 The Squim Conglomerate: The Squim Conglomerate is a planet mining corporation that ran a battle royale season prior to Borant's season.
 The Syndicate Council: The Syndicate Council governs the universe and created the Crawl. It consists of many of the most powerful governments.
@@ -31,7 +31,7 @@ Cosmic Burrito Emporium: A fast-food chain that claims to offer "out-of-this-wor
 Amalgamated Apocalypse Insurance: An insurance company that offers coverage for doomsday scenarios, including dungeon collapses, planet-wide transformations, and eldritch horrors.
 Black Hole Technologies: A secretive organization that harnesses the power of miniaturized black holes for energy production and weaponry.
 Eternal Youth Elixirs, LLC: A company that markets dubious potions claiming to grant immortality, but with side effects like uncontrollable hiccups or permanent neon-colored hair.
-Paradox Solutions: A corporation that exploits time travel and parallel universes for profit, often causing world-ending paradoxes in the process.
+Paradox Solutions A corporation that exploits time travel and parallel universes for profit, often causing world-ending paradoxes in the process.
 Unicorn Sparkle Cleanup Crew: A janitorial service that specializes in cleaning up the glittery messes left behind by magical creatures in the dungeon.
 Doomsday Delectables: A company that produces novelty snacks and drinks themed around the apocalypse, such as "Fallout Fudge" and "Collapse Cola."
 
@@ -53,7 +53,7 @@ Crafter: Tall, thin, pale-skinned subterranean dwellers with bug-like eyes, coar
 Crest: A humanoid race with no eyebrows that sometimes participates in Faction Wars.
 Cretin: A rock elemental that serves as security in The Desperado Club and as mercenaries for The Royal Court of Princess Donut.
 Crocodilian: Lizard creatures that make good barbarians, with an ability that triples the effectiveness of buffs from eating creatures.
-Doppelg‰nger: A shape-shifting race that rearranges its body mass to look like another race.
+Doppelg√§nger: A shape-shifting race that rearranges its body mass to look like another race.
 Dreadnoughts: Large, red-skinned humanoids who rarely did well in Faction Wars due to their fighting style of just hitting everything in front of them.
 Dromedarian: A common, formerly nomadic race found throughout the drier parts of the universe, able to store large amounts of liquid in their bodies and survive up to two months without water.
 Elf: A humanoid race with pointy ears, having various sub-races like high elves, dark elves, night elves, etc.
@@ -91,7 +91,7 @@ Shade Gnoll: Hyena-like beings working as a mercenary police force specializing 
 Skin skelly: Skeletons capable of growing flesh and organs, vulnerable to certain diseases as the grown parts fall off.
 Skyfowl: Eagle-headed humanoids with a xenophobic attitude towards non-winged races, involved in faction wars and known for their proud nature.
 Tigran: Orange, furry humanoids with unspecified characteristics beyond their appearance.
-Tuskling Knight: Once-mighty warriors now reduced to bureaucrats, with a unique battle formation known as a ìBall of Swine.î
+Tuskling Knight: Once-mighty warriors now reduced to bureaucrats, with a unique battle formation known as a ‚ÄúBall of Swine.‚Äù
 Vampire: Beings requiring blood to survive, gaining a variety of abilities and enhanced traits upon permanent infection.
 Viceroys: A government and race specializing in necromancy and horrific battlefield spells, participating in Faction Wars under the alias "The Madness."
 Yenk: A race with three genders, involving a complex societal structure with males often serving as mercenaries or bounty hunters.
@@ -183,5 +183,5 @@ Focus on Exploration and Discovery: While combat remains a core element, Valtay'
 Possible Storylines:
 Unraveling the Ancient Mystery: The players could be tasked with uncovering the secrets of the ancient civilization, piecing together fragments of information from artifacts, ruins, and cryptic messages left behind. This could lead them to discover powerful technology, hidden truths about Earth's history, and possibly even a way to restore the lost civilization.
 Confronting Ancient Guardians: The players might encounter powerful guardians protecting the secrets of the past. These could be AI constructs, mutated creatures, or even remnants of the ancient civilization itself. Overcoming these challenges will require strategic thinking, teamwork, and creative use of the ancient technology.
-Moral Dilemmas: The players might face difficult choices regarding the ancient technology, which may have a terrible cost.
+Moral Dilemmas: The players might face difficult choices regarding the ancient technology.
 Dungeon Crawler World Earth 2: Crawl Harder: Coming to a tunnel near you!!!!

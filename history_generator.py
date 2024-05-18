@@ -11,9 +11,12 @@ def import_from_wiki(categories: list):
         output+=import_category
     return output
 preprompt_list=["Syndicate History","Syndicate Organizations","Races","Dungeon Mechanics"]
+#["Syndicate History","Syndicate Organizations","Races","Dungeon Mechanics"]
 
 
 preprompt=import_from_wiki(preprompt_list)
+# with open('./data/preprompt_summarized.txt','r',encoding="utf-8") as file:
+#     preprompt=file.read()
 tokens=len(enc.encode(preprompt))
 print(f"cost for gpt-4-turbo=${tokens*10/1e6:.2f}")
 with open ('./data/preprompt.txt','w') as f:

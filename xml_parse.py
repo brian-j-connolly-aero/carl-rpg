@@ -42,17 +42,17 @@ def get_category(category: str):
 def clean_string(s):
     # Remove [[Category:Something]]
     cleaned_s=s
-    cleaned_s = re.sub(r'\[\[Category.*?\]\]', '', s)
-    cleaned_s = re.sub(r'\{\{Spoil.*?\}\}', '', cleaned_s)
-    cleaned_s = re.sub(r'\[\[File:.*?\]\]', '', cleaned_s)
-    cleaned_s = re.sub(r'\[\[.*?\|(.*?)\]\]', r'\1', cleaned_s)
-    cleaned_s = re.sub(r'\[\[', '', cleaned_s)
-    cleaned_s = re.sub(r'\]\]', '', cleaned_s)
-    cleaned_s = re.sub(r'\{\{.*?\}\}', '', cleaned_s)
-    cleaned_s = re.sub(r'<ref.*?>.*?</ref>', '', cleaned_s, flags=re.DOTALL)
-    cleaned_s = re.sub(r'\n+', '\n', cleaned_s)
-    cleaned_s = re.sub(r'<[^>]+>', '', cleaned_s)
-    cleaned_s = cleaned_s.replace("\'","")
+    # cleaned_s = re.sub(r'\[\[Category.*?\]\]', '', s)
+    # cleaned_s = re.sub(r'\{\{Spoil.*?\}\}', '', cleaned_s)
+    # cleaned_s = re.sub(r'\[\[File:.*?\]\]', '', cleaned_s)
+    # cleaned_s = re.sub(r'\[\[.*?\|(.*?)\]\]', r'\1', cleaned_s)
+    # cleaned_s = re.sub(r'\[\[', '', cleaned_s)
+    # cleaned_s = re.sub(r'\]\]', '', cleaned_s)
+    # cleaned_s = re.sub(r'\{\{.*?\}\}', '', cleaned_s)
+    # cleaned_s = re.sub(r'<ref.*?>.*?</ref>', '', cleaned_s, flags=re.DOTALL)
+    # cleaned_s = re.sub(r'\n+', '\n', cleaned_s)
+    # cleaned_s = re.sub(r'<[^>]+>', '', cleaned_s)
+    # cleaned_s = cleaned_s.replace("\'","")
     # Truncate after "==References=="
     # Split the string and keep only the part before "==References=="
     parts = cleaned_s.split("==References==")

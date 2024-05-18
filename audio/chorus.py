@@ -2,7 +2,6 @@ import librosa
 import numpy as np
 import soundfile as sf
 
-
 def pitch_shift_audio(input_file, output_file, n_steps=6):
     """
     Pitch shifts an audio file without changing its duration.
@@ -38,8 +37,8 @@ def apply_chorus(y, sr, depth=0.005, rate=.1):
     delay_samples = int(depth * sr)
     
     # Create a delayed copy of the audio signal
-    y_delayed = np.zeros_like(y)
-    y_delayed[delay_samples:] = y[:-delay_samples]
+    y_delayed = np.zeros_like(y, dtype=np.float32)
+    y_delayed[delay_samples:] = y[:-delay_samples].astype(np.float32)
     
     # Create a modulated delay
     lfo = np.sin(2 * np.pi * np.arange(len(y)) * rate / sr)

@@ -1,0 +1,21 @@
+graph TD
+DatabaseRead[Database]--->LLM_Query
+Current_Scene--->LLM_Query
+    subgraph New_Achievement
+    Achievement_Prompt-->LLM_Query
+    LLM_Query
+    LLM_Query-->Achievement_Name
+    LLM_Query-->Achievement_Text
+    LLM_Query-->Box_Type
+    LLM_Query-->Box_Contents
+    Achievement_Name-->Achievement_Script
+    Achievement_Text-->Achievement_Script
+    end
+Achievement_Script-->AI_Voice
+
+Box_Type-->Achievement_Script
+Achievement_Name--->Database
+Achievement_Text--->Database
+Box_Type--->Database
+Box_Contents--->Database
+Box_Contents--->New_Item

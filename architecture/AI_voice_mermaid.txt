@@ -1,0 +1,12 @@
+graph TD
+
+Database_ID-->Database
+    subgraph AI_Voice
+    Text_To_Speech-->Postprocessing
+    Postprocessing-->Audio_File
+    Postprocessing-->Audio_File_Path
+
+    end
+Audio_File-->Database
+Audio_File_Path-->Database
+
