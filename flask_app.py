@@ -16,7 +16,7 @@ def create_app():
     models.db.init_app(app)
 
     # Import and register blueprints
-    from routes import bp as routes_bp
+    from routes_gpt_generated import bp as routes_bp
     app.register_blueprint(routes_bp)
     with app.app_context():
         models.db.create_all()

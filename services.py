@@ -16,6 +16,13 @@ from sqlalchemy.inspection import inspect
 def get_by_id(model,id):
     return model.query.get(id)
 
+def create(model, data):
+    new_entry = model(**data)
+    db.session.add(new_entry)
+    db.session.commit()
+    return new_entry
+
+
 def update(instance, updated_data):
     for key, value in updated_data.items():
         setattr(instance, key, value)
@@ -192,25 +199,43 @@ def delete_history(history_entry):
     db.session.delete(history_entry)
     db.session.commit()
 
-# # Spell Services
-# def get_all_spells():
-#     return Spell.query.all()
 
-# def get_spell_by_id(spell_id):
-#     return Spell.query.get(spell_id)
 
-# def create_spell(data):
-#     new_spell = Spell(**data)
-#     db.session.add(new_spell)
-#     db.session.commit()
-#     return new_spell
+# ai_services
+def add_prompt(conversation: list, content: str, role: str = "user") -> list:
+    """
+    Appends a new prompt with specified content and role to the conversation list.
+    Args:
+    conversation (list): The conversation history to modify.
+    content (str): The content of the prompt to add.
+    role (str): The role associated with the prompt, defaulting to 'user'.
+    
+    Returns:
+    list: The modified conversation list.
+    """
+    if not isinstance(conversation, list):
+        raise ValueError("conversation must be a list")
+    if not isinstance(content, str) or not isinstance(role, str):
+        raise ValueError("content and role must be strings")
+    
+    conversation.append({"role": role, "content": content})
+    return conversation
 
-# def update_spell(spell, data):
-#     for key, value in data.items():
-#         setattr(spell, key, value)
-#     db.session.commit()
-#     return spell
+def dump_models_to_file(filename):
+    with app.app_context():
+        with open(filename, 'w') as file:
+            for table in db.Model.metadata.sorted_tables:
+                file.write(f'Table: {table.name}\n')
+                file.write(f'Columns:\n')
+                for column in table.columns:
+                    file.write(f'  - {column.name}: {column.type}\n')
+                file.write('\n')
 
-# def delete_spell(spell):
-#     db.session.delete(spell)
-#     db.session.commit()
+def assemble_preprompt():
+    conversation=[]
+    # get all history in order (summaries?) current session? will fix later
+    hist_preprompt=''
+    
+    add_prompt(conversation,hist_preprompt,"system")
+    # history to 
+    pass

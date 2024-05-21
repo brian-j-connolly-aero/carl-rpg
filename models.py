@@ -5,6 +5,7 @@ db = SQLAlchemy()
 # Define your models
 
 
+
 class Party(db.Model):
     __tablename__ = 'Parties'
 
@@ -59,11 +60,11 @@ class Character(db.Model):
 class Item(db.Model):
     __tablename__ = 'Items'
 
-    ItemID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    ID = db.Column(db.Integer, primary_key=True, autoincrement=True)
     Name = db.Column(db.String, nullable=False)
     Type = db.Column(db.String)
     Description = db.Column(db.Text, nullable=False)
-    #Equipped = db.Column(db.String, nullable=False)
+    # Equipped = db.Column(db.String, nullable=False)
     Count = db.Column(db.Integer)
     CharacterID = db.Column(
         db.Integer, db.ForeignKey('Characters.ID'))
@@ -76,5 +77,8 @@ class Item(db.Model):
 class History(db.Model):
     __tablename__ = 'History'
 
-    HistoryID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    ID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    Name = db.Column(db.String, nullable=False)
     Description = db.Column(db.Text, nullable=False)
+
+

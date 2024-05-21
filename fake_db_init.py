@@ -10,6 +10,7 @@ db.init_app(app)
 
 fake = Faker()
 
+
 def create_fake_data():
     with app.app_context():
         db.create_all()
@@ -21,7 +22,8 @@ def create_fake_data():
 
         # Create fake floors
         for _ in range(5):
-            floor = Floor(Name=fake.country(), FloorNumber=fake.random_int(min=1, max=10), Description=fake.text())
+            floor = Floor(Name=fake.country(), FloorNumber=fake.random_int(
+                min=1, max=10), Description=fake.text())
             db.session.add(floor)
 
         db.session.commit()
@@ -29,7 +31,8 @@ def create_fake_data():
         # Create fake locations
         floors = Floor.query.all()
         for _ in range(20):
-            location = Location(Name=fake.street_name(), FloorID=fake.random_element(elements=[floor.ID for floor in floors]), Description=fake.text())
+            location = Location(Name=fake.street_name(), FloorID=fake.random_element(
+                elements=[floor.ID for floor in floors]), Description=fake.text())
             db.session.add(location)
 
         db.session.commit()
@@ -47,9 +50,11 @@ def create_fake_data():
                 Class=fake.job(),
                 Type=fake.word(),
                 Level=fake.random_int(min=1, max=20),
-                PartyID=fake.random_element(elements=[party.ID for party in parties]),
+                PartyID=fake.random_element(
+                    elements=[party.ID for party in parties]),
                 PartyRole=fake.job(),
-                LocationID=fake.random_element(elements=[location.ID for location in locations]),
+                LocationID=fake.random_element(
+                    elements=[location.ID for location in locations]),
                 Description=fake.text(),
                 Attributes="None"
             )
@@ -64,10 +69,12 @@ def create_fake_data():
                 Name=fake.word(),
                 Type=fake.word(),
                 Description=fake.text(),
-                #Equipped=str(fake.boolean()),
+                # Equipped=str(fake.boolean()),
                 Count=fake.random_int(min=1, max=10),
-                CharacterID=fake.random_element(elements=[character.ID for character in characters]),
-                LocationID=fake.random_element(elements=[location.ID for location in locations]),
+                CharacterID=fake.random_element(
+                    elements=[character.ID for character in characters]),
+                LocationID=fake.random_element(
+                    elements=[location.ID for location in locations]),
                 Attributes="None"
             )
             db.session.add(item)
@@ -81,7 +88,9 @@ def create_fake_data():
 
         db.session.commit()
 
+
         print('Fake data added to the database.')
+
 
 if __name__ == '__main__':
     create_fake_data()
